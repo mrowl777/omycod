@@ -10,19 +10,25 @@
 #content .grid {
     position: relative;
     background: rgba(255, 255, 200, 0.5);
+    max-width: 1400px; 
+    margin: 0 auto; 
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
 }
 
 #content .item {
     position: relative;
-    display: inline-block;
     background: rgba(200, 255, 255, 0.5);
     box-shadow: 0 0 0 3px #000;
+    min-width: 250px;
+    aspect-ratio: 4 / 3;
 }
 
 #content .item .div {
     position: relative;
-    width: 80px;
-    height: 60px;
+    width: 100%; 
+    height: 100%;
     overflow: hidden;
     background: #930;
 }
@@ -32,5 +38,10 @@
     left: 0px;
     top: 0px;
     width: 100%;
-    max-width: 500px;
+}
+
+@media (max-width: 800px) {
+    #content .grid {
+        grid-template-columns: auto;
+    }
 }

@@ -1,6 +1,21 @@
 function Get() {
     var arr = { key1: 'val1', key2: 'val2', key3: 'val3' };
-    alert('РќСѓР¶РЅРѕ РґРѕРґРµР»Р°С‚СЊ');
-    // РЎРґРµР»Р°Р№С‚Рµ post Р·Р°РїСЂРѕСЃ Рє С„Р°Р№Р»Сѓ get.php. Р’ Р·Р°РїСЂРѕСЃРµ РїРµСЂРµРґР°Р№С‚Рµ РјР°СЃСЃРёРІ "arr"
-    // Р’ Р·Р°РїСЂРѕСЃРµ РґРѕР»Р¶РЅРѕ СЃСЂР°Р±РѕС‚Р°С‚СЊ СѓСЃР»РѕРІРёРµ: isset($_POST['get'])
+
+    var data = new FormData();
+    data.append( "get", true );
+    data.append( "arr", JSON.stringify(arr) );
+
+    const requestOptions = {
+        method: 'POST',
+        body: data
+    };
+    
+    fetch('/get.php', requestOptions)
+    .then(response => response.text()) // здесь получить в json формате, но зачем, если для вывода потом потребуется JSON.stringify
+    .then(data => {
+        document.querySelector(".getback").innerHTML = data;
+    })
+    .catch(error => {
+        console.error('Error:', error); // Handle any errors
+    });
 }
