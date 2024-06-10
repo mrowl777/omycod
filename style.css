@@ -1,0 +1,36 @@
+#content {
+    position: relative;
+}
+
+#content a {
+    color: #79C;
+    fill: #79C;
+}
+
+#content .grid {
+    position: relative;
+    background: rgba(255, 255, 200, 0.5);
+}
+
+#content .item {
+    position: relative;
+    display: inline-block;
+    background: rgba(200, 255, 255, 0.5);
+    box-shadow: 0 0 0 3px #000;
+}
+
+#content .item .div {
+    position: relative;
+    width: 80px;
+    height: 60px;
+    overflow: hidden;
+    background: #930;
+}
+
+#content .item img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    max-width: 500px;
+}
